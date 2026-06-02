@@ -1,12 +1,13 @@
 body {
   display: flex;
-  flex-direction: column;
+  flex-direction: column; /* 縦並びにする設定 */
   align-items: center;
   min-height: 100vh;
   margin: 0;
   padding: 40px 20px;
-  background-color: #1a1a1a;
+  background-color: #1a1a1a; /* VFXサイト風のダーク背景 */
   box-sizing: border-box;
+  /* 全体のフォントをＭＳ Ｐゴシックに指定 */
   font-family: "MS PGothic", "MS Pゴシック", sans-serif; 
 }
 
@@ -15,24 +16,37 @@ h1 {
   margin-bottom: 30px;
 }
 
+/* スライダー全体の共通設定 */
 .slider-container {
   position: relative;
   width: 100%;
   overflow: hidden;
   user-select: none;
   box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-  margin-bottom: 50px;
+  margin-bottom: 50px; /* スライダー同士の縦の隙間 */
 }
 
+/* 🎬 グループ1専用の設定 (960x540 / 16:9) */
 #group1 {
   max-width: 960px;
   aspect-ratio: 16 / 9;
 }
 #group1 .image-after-wrap .image-after {
-  width: 960px;
+  width: 960px; /* After画像の潰れ防止 */
   max-width: none;
 }
 
+/* 🎬 グループ2専用の設定 (270x270 / 1:1) */
+#group2 {
+  max-width: 270px;
+  aspect-ratio: 1 / 1;
+}
+#group2 .image-after-wrap .image-after {
+  width: 270px; /* After画像の潰れ防止 */
+  max-width: none;
+}
+
+/* 画像とスライダーの位置関係の設定 */
 .slider-container img {
   position: absolute;
   top: 0;
@@ -47,12 +61,13 @@ h1 {
   position: absolute;
   top: 0;
   left: 0;
-  width: 50%;
+  width: 50%; /* 初期表示は半分 */
   height: 100%;
   overflow: hidden;
   z-index: 2;
 }
 
+/* 本物のスライダー（透明にして上に被せる） */
 .slider {
   position: absolute;
   -webkit-appearance: none;
@@ -66,6 +81,7 @@ h1 {
   margin: 0;
 }
 
+/* 見た目用の白い縦線 */
 .slider-button {
   position: absolute;
   top: 0;
@@ -78,6 +94,7 @@ h1 {
   pointer-events: none;
 }
 
+/* 線の中央にある丸いつまみ */
 .slider-button::after {
   content: '↔';
   color: #333;
